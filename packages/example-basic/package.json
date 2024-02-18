@@ -1,0 +1,25 @@
+{
+  "name": "example-basic",
+  "version": "1.0.0",
+  "description": "",
+  "source": "src/index.html",
+  "scripts": {
+    "start": "parcel --https",
+    "build": "parcel build --https",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/react": "^18.2.56",
+    "@types/react-dom": "^18.2.19",
+    "parcel": "^2.11.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-document-picture-in-picture": "workspace:^",
+    "react-dom": "^18.2.0"
+  }
+}
