@@ -1,13 +1,3 @@
-/*
-All Rights Reserved, (c) 2024 Martin Shaw
-
-Author: Martin Shaw (developer@martinshaw.co)
-File Name: CodeSnippet.tsx
-Created:  2024-02-18T21:03:32.094Z
-Modified: 2024-02-18T21:03:32.094Z
-
-Description: description
-*/
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/prism';
 

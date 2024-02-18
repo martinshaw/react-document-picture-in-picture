@@ -1,14 +1,3 @@
-/*
-All Rights Reserved, (c) 2024 Martin Shaw
-
-Author: Martin Shaw (developer@martinshaw.co)
-File Name: ReactDocumentPictureInPicture.tsx
-Created:  2024-02-18T16:25:36.815Z
-Modified: 2024-02-18T16:25:36.815Z
-
-Description: description
-*/
-
 import { ReactNode, useRef, useState, useCallback, forwardRef, useEffect, useImperativeHandle, useMemo } from "react";
 
 /**
