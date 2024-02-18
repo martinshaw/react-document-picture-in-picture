@@ -22,12 +22,7 @@ const App = () => {
             </p>
 
             <ReactDocumentPictureInPicture
-                content={<i>This text should be displayed in a Document Picture in Picture in the bottom right of the original window</i>}
-                onOpen={() => console.log('Opened')}
-                onClose={() => console.log('Closed')}
-                onResize={(width, height) => console.log('Resized to ' + width + 'x' + height)}
-            >
-                {
+                buttonRenderer={
                     ({ open, close, toggle, isOpen }) => <div>
                         <b>Is {isOpen ? 'Open' : 'Closed'} </b>
                         <button onClick={open}>Open</button>
@@ -35,6 +30,11 @@ const App = () => {
                         <button onClick={toggle}>Toggle</button>
                     </div>
                 }
+                onOpen={() => console.log('Opened')}
+                onClose={() => console.log('Closed')}
+                onResize={(width, height) => console.log('Resized to ' + width + 'x' + height)}
+            >
+                This text should be displayed in a Document Picture in Picture in the bottom right of the original window
             </ReactDocumentPictureInPicture>
 
 

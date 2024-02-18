@@ -13,7 +13,7 @@ import { ReactNode, useRef, useState, useCallback, forwardRef, useEffect, useImp
 
 /**
  * If you wish, you can interact with the window, its document's DOM, and convenience 
- *   methods imperatively using the ref prop.
+ *   methods imperatively using the `ref` prop.
  * 
  * Due to Chrome's current security policy regarding the Document Picture in Picture 
  *   feature, you cannot open a new window programmatically.
@@ -33,8 +33,8 @@ export type ReactDocumentPictureInPicturePropsType = {
     onOpen?: () => void;
     onClose?: () => void;
     onResize?: (width: number, height: number) => void;
-    content?: ReactNode | ((props: { close: () => void, isOpen: boolean }) => ReactNode);
-    children?: ReactNode | ((props: { open: () => void, close: () => void, toggle: () => void, isOpen: boolean }) => ReactNode);
+    buttonRenderer?: ReactNode | ((props: { open: () => void, close: () => void, toggle: () => void, isOpen: boolean }) => ReactNode);
+    children?: ReactNode | ((props: { close: () => void, isOpen: boolean }) => ReactNode);
 };
 
 const ReactDocumentPictureInPicture = forwardRef<
@@ -108,18 +108,18 @@ const ReactDocumentPictureInPicture = forwardRef<
         close,
     ]);
 
-    const children: ReactNode = typeof props.children === "function" ? props.children({ open, close, toggle, isOpen }) : props.children;
-    const content: ReactNode = typeof props.content === "function" ? props.content({ close, isOpen }) : props.content;
+    const children: ReactNode = typeof props.children === "function" ? props.children({ close, isOpen }) : props.children;
+    const buttonRenderer: ReactNode = typeof props.buttonRenderer === "function" ? props.buttonRenderer({ open, close, toggle, isOpen }) : props.buttonRenderer;
 
     return (
         <div>
-            {children}
+            {buttonRenderer}
             <div ref={contentRef} style={{
                 display: isOpen ? 'block' : 'none',
                 width: '100%',
                 height: '100%',
             }}>
-                {content}
+                {children}
             </div>
         </div>
     );

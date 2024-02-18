@@ -51,9 +51,7 @@ const App = () => {
 
             <ReactDocumentPictureInPicture
                 ref={pipWindowRef}
-                content={<i>This text should be displayed in a Document Picture in Picture in the bottom right of the original window</i>}
-            >
-                {
+                buttonRenderer={
                     ({ open, close, toggle, isOpen }) => <div>
                         <b>Is {isOpen ? 'Open' : 'Closed'} </b>
                         <button onClick={open}>Open</button>
@@ -61,6 +59,8 @@ const App = () => {
                         <button onClick={toggle}>Toggle</button>
                     </div>
                 }
+            >
+                <i>This text should be displayed in a Document Picture in Picture in the bottom right of the original window</i>
             </ReactDocumentPictureInPicture>
 
 

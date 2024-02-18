@@ -20,9 +20,7 @@ const App = () => {
             <ReactDocumentPictureInPicture
                 width="50%"
                 height="100%"
-                content={<i>This text should be displayed in a Document Picture in Picture filling the maximum allow height and 50% of the width of the original window</i>}
-            >
-                {
+                buttonRenderer={
                     ({ open, close, toggle, isOpen }) => <div>
                         <b>Is {isOpen ? 'Open' : 'Closed'} </b>
                         <button onClick={open}>Open</button>
@@ -30,6 +28,8 @@ const App = () => {
                         <button onClick={toggle}>Toggle</button>
                     </div>
                 }
+            >
+                <i>This text should be displayed in a Document Picture in Picture filling the maximum allow height and 50% of the width of the original window</i>
             </ReactDocumentPictureInPicture>
 
 
