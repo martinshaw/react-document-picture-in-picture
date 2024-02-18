@@ -29,16 +29,16 @@ const App = () => {
                 </div>
                 <div> 
                     <ul>
-                        <li><a onClick={() => setVisibleSection('size')}>Size</a></li>
-                        <li><a onClick={() => setVisibleSection('events')}>Events</a></li>
-                        <li><a onClick={() => setVisibleSection('using-ref')}>Using Ref</a></li>
+                        <li><a className="button" onClick={() => setVisibleSection('size')}>Size</a></li>
+                        <li><a className="button" onClick={() => setVisibleSection('events')}>Events</a></li>
+                        <li><a className="button" onClick={() => setVisibleSection('using-ref')}>Using Ref</a></li>
                     </ul>
                 </div>
                 <div>
                     <ul>
-                        <li><a href="https://www.npmjs.com/package/react-document-picture-in-picture" target="_blank">NPM</a></li>
-                        <li><a href="https://www.github.com/martinshaw/react-document-picture-in-picture" target="_blank">GitHub</a></li>
-                        <li><a href="https://martinshaw.co">My Other Work</a></li>
+                        <li><a className="button" href="https://www.npmjs.com/package/react-document-picture-in-picture" target="_blank">NPM</a></li>
+                        <li><a className="button" href="https://www.github.com/martinshaw/react-document-picture-in-picture" target="_blank">GitHub</a></li>
+                        <li><a className="button" href="https://martinshaw.co">My Other Work</a></li>
                     </ul>
                 </div>
             </nav>
