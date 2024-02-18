@@ -1,11 +1,11 @@
 {
-  "name": "example-basic",
+  "name": "examples",
   "version": "1.0.0",
   "description": "",
-  "source": "src/index.html",
   "scripts": {
-    "start": "parcel --https",
-    "build": "parcel build --https",
+    "start:size": "parcel --https src/size/index.html",
+    "start:using-ref": "parcel --https src/using-ref/index.html",
+    "start:events": "parcel --https src/events/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

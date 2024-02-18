@@ -11,6 +11,9 @@ Description: description
 
 interface Window {
   documentPictureInPicture: {
-    requestWindow: () => Promise<Window>;
+    requestWindow: (options?: {
+      width: number;
+      height: number;
+    }) => Promise<Window>;
   };
 }

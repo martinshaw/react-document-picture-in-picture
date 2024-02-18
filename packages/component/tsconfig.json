@@ -10,6 +10,6 @@
     "target": "es2016",
     "lib": ["dom", "es2016"]
   },
-  "include": ["."],
+  "include": ["./src/**/*"],
   "exclude": ["dist", "node_modules", "**/*.spec.ts"]
 }

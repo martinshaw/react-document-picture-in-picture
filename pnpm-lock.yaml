@@ -6,10 +6,20 @@ settings:
 
 importers:
 
-  .: {}
+  .:
+    devDependencies:
+      process:
+        specifier: ^0.11.10
+        version: 0.11.10
 
   packages/component:
     devDependencies:
+      '@types/react':
+        specifier: ^18.2.56
+        version: 18.2.56
+      '@types/react-dom':
+        specifier: ^18.2.19
+        version: 18.2.19
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -1849,6 +1859,11 @@ packages:
     dependencies:
       posthtml-parser: 0.11.0
       posthtml-render: 3.0.0
+    dev: true
+
+  /process@0.11.10:
+    resolution: {integrity: sha512-cdGef/drWFoydD1JsMzuFf8100nZl+GT+yacc2bEced5f9Rjk4z+WtFUTBu9PhOi9j/jfmBPu0mMEY4wIdAF8A==}
+    engines: {node: '>= 0.6.0'}
     dev: true
 
   /react-dom@18.2.0(react@18.2.0):
