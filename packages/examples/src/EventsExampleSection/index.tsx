@@ -5,15 +5,7 @@ import CodeSnippet from "../CodeSnippet";
 
 const EventsExampleSection = () => {
     return (
-        <div style={{
-            fontFamily: "sans-serif",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            height: "100vh",
-            gap: "1rem",
-        }}>
+        <div className="example-section">
             <CodeSnippet>
                 {`
 import ReactDocumentPictureInPicture from "react-document-picture-in-picture";

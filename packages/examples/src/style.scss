@@ -16,7 +16,8 @@ nav {
   justify-content: space-between;
   padding: 10px 30px;
 
-  > div:first-child, > div:last-child {
+  > div:first-child,
+  > div:last-child {
     min-width: 400px;
   }
 
@@ -40,73 +41,84 @@ nav {
     padding: 0;
 
     > li > a {
-        //
+      //
     }
   }
 }
 
+.example-section {
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 70px);
+  gap: 1rem;
+}
+
 .code-snippet {
-    zoom: 0.8;
-    user-select: text;
-    position: relative;
+  zoom: 0.8;
+  user-select: text;
+  position: relative;
 
-    > button {
-        position: absolute;
-        top: 18px;
-        right: 10px;
-        background-color: $tw-slate-950;
-        color: $tw-slate-300;
-        border: none;
-        padding: 5px 10px;
-        cursor: pointer;
-        border-radius: 5px;
-        transition: all 0.3s;
-
-        &:hover {
-            background-color: $tw-slate-800;
-        }
-    }
-
-    &, & > * {
-        border-radius: 5px;
-    }
-}
-
-.arrow-divider {
-    padding: 20px;
-}
-
-.subtle-text {
-    color: $tw-slate-500;
-    text-align: center;
-}
-
-.button {
-    text-decoration: none;
+  > button {
+    position: absolute;
+    top: 18px;
+    right: 10px;
+    background-color: $tw-slate-950;
     color: $tw-slate-300;
-    transition: color 0.3s;
-    cursor: pointer;
-    background-color: $tw-slate-800;
-    transition: all 0.3s;
-    padding: 10px 15px;
-    border-radius: 5px;
     border: none;
-    font-size: 16px;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s;
 
     &:hover {
       background-color: $tw-slate-800;
-      color: $tw-slate-100;
     }
+  }
+
+  &,
+  & > * {
+    border-radius: 5px;
+  }
+}
+
+.arrow-divider {
+  padding: 20px;
+}
+
+.subtle-text {
+  color: $tw-slate-500;
+  text-align: center;
+}
+
+.button {
+  text-decoration: none;
+  color: $tw-slate-300;
+  transition: color 0.3s;
+  cursor: pointer;
+  background-color: $tw-slate-800;
+  transition: all 0.3s;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+
+  &:hover {
+    background-color: $tw-slate-800;
+    color: $tw-slate-100;
+  }
 }
 
 .button-bar {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
 
-    b {
-        font-size: 14px;
-    }
+  b {
+    font-size: 14px;
+  }
 }
