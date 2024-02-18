@@ -4,7 +4,7 @@ import ReactDocumentPictureInPicture, {ReactDocumentPictureInPictureForwardRefTy
 
 import { useEffect, useRef } from "react";
 
-const App = () => {
+const UsingRefExampleSection = () => {
     const pipWindowRef = useRef<ReactDocumentPictureInPictureForwardRefType>();
 
     useEffect(() => {
@@ -68,4 +68,4 @@ const App = () => {
     );
 }
 
-export default App;
+export default UsingRefExampleSection;

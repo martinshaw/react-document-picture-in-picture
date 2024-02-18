@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start:size": "parcel --https src/size/index.html",
-    "start:using-ref": "parcel --https src/using-ref/index.html",
-    "start:events": "parcel --https src/events/index.html",
+    "start": "parcel --https src/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -15,6 +13,7 @@
     "@types/react": "^18.2.56",
     "@types/react-dom": "^18.2.19",
     "parcel": "^2.11.0",
+    "tailwind-colors-scss": "^1.0.0",
     "typescript": "^5.3.3"
   },
   "dependencies": {

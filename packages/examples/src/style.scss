@@ -1,0 +1,58 @@
+@import "../node_modules/tailwind-colors-scss/src/variables.scss";
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background-color: $tw-slate-950;
+  color: $tw-slate-300;
+  user-select: none;
+}
+
+nav {
+  justify-content: space-between;
+  padding: 10px 30px;
+
+  > div:first-child, > div:last-child {
+    min-width: 400px;
+  }
+
+  > div:last-child {
+    justify-content: flex-end;
+  }
+
+  &,
+  & div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    list-style: none;
+    padding: 0;
+
+    > li > a {
+      text-decoration: none;
+      color: $tw-slate-300;
+      transition: color 0.3s;
+      cursor: pointer;
+      background-color: $tw-slate-950;
+      transition: all 0.3s;
+      padding: 10px 15px;
+      border-radius: 5px;
+
+      &:hover {
+        background-color: $tw-slate-800;
+        color: $tw-slate-100;
+      }
+    }
+  }
+}

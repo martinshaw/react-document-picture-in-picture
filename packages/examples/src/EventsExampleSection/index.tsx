@@ -1,10 +1,8 @@
 // You should use the following line to import the component in your own project
 // import ReactDocumentPictureInPicture from "react-document-picture-in-picture";
-import ReactDocumentPictureInPicture, {ReactDocumentPictureInPictureForwardRefType} from "../../../component/src";
+import ReactDocumentPictureInPicture from "../../../component/src";
 
-import { useEffect, useRef } from "react";
-
-const App = () => {
+const EventsExampleSection = () => {
     return (
         <div style={{
             fontFamily: "sans-serif",
@@ -15,11 +13,15 @@ const App = () => {
             height: "100vh",
             gap: "1rem",
         }}>
-            <h1>Example - Size</h1>
+            <h1>Example - Events</h1>
+
+            <p>
+                There are a few useful event props which you can use to listen to the state of the Picture in Picture window: <code>onOpen</code>, <code>onClose</code>, <code>onResize</code>
+                <br/><br/>
+                Open the console to see the logs.
+            </p>
 
             <ReactDocumentPictureInPicture
-                width="50%"
-                height="100%"
                 buttonRenderer={
                     ({ open, close, toggle, isOpen }) => <div>
                         <b>Is {isOpen ? 'Open' : 'Closed'} </b>
@@ -28,8 +30,11 @@ const App = () => {
                         <button onClick={toggle}>Toggle</button>
                     </div>
                 }
+                onOpen={() => console.log('Opened')}
+                onClose={() => console.log('Closed')}
+                onResize={(width, height) => console.log('Resized to ' + width + 'x' + height)}
             >
-                <i>This text should be displayed in a Document Picture in Picture filling the maximum allow height and 50% of the width of the original window</i>
+                This text should be displayed in a Document Picture in Picture in the bottom right of the original window
             </ReactDocumentPictureInPicture>
 
 
@@ -37,4 +42,4 @@ const App = () => {
     );
 }
 
-export default App;
+export default EventsExampleSection;
