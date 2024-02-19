@@ -5,6 +5,9 @@
   "description": "Feature-packed and optimised React component for Chrome's new Document Picture-in-Picture API",
   "main": "index.js",
   "scripts": {
+    "component:publish": "pnpm --filter react-document-picture-in-picture publish",
+    "component:build": "pnpm run --filter react-document-picture-in-picture build",
+    "examples:start": "pnpm run --filter examples start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
