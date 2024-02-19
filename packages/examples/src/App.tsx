@@ -29,8 +29,6 @@ const App = () => {
             <nav>
                 <div>
                     React Document Picture in Picture
-                </div>
-                <div> 
                     <ul>
                         <li><a className="button" onClick={() => setVisibleSection('size')}>Size</a></li>
                         <li><a className="button" onClick={() => setVisibleSection('events')}>Events</a></li>
