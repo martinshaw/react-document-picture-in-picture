@@ -1,6 +1,6 @@
 {
   "name": "examples",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "private": true,
   "description": "Feature-packed and optimised React component for Chrome's new Document Picture-in-Picture API",
   "scripts": {
