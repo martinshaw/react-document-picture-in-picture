@@ -23,7 +23,7 @@ import ReactDocumentPictureInPicture from "react-document-picture-in-picture";
 
             <ReactDocumentPictureInPicture
                 featureUnavailableRenderer={(reason) => <div>Feature Unavailable: {reason}</div>}
-                buttonRenderer={({ open }) => <button onClick={open}>Open</button>}
+                buttonRenderer={({ open }) => <button className="button" onClick={open}>Open</button>}
             >
                 <i>This Document Picture-in-Picture window and its activating button will not appear when this experimental feature isn't available in your browser</i>
             </ReactDocumentPictureInPicture>
