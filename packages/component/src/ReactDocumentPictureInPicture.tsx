@@ -1,3 +1,5 @@
+"use client";
+
 import { ReactNode, useRef, useState, useCallback, forwardRef, useEffect, useImperativeHandle, useMemo } from "react";
 
 /**
