@@ -37,7 +37,15 @@ import ReactDocumentPictureInPicture from "react-document-picture-in-picture";
 
 There are at least three useful examples demonstrating how to use event props, the ref prop and size props in the [`examples`](https://github.com/martinshaw/react-document-picture-in-picture/tree/master/packages/examples) package of this monorepo.
 
-To quickly take a look at the examples, clone the repository, install PNPM and run the following commands:
+To quickly take a look at the examples, click here [https://martinshaw.github.io/react-document-picture-in-picture/packages/examples/dist/](https://martinshaw.github.io/react-document-picture-in-picture/packages/examples/dist/).
+
+Or you can build the examples site yourself:
+
+1. Clone the repository
+
+2. Install PNPM
+
+3. Finally, run the following commands:
 
 ```bash
 pnpm install 
