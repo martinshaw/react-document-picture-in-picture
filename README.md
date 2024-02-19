@@ -45,5 +45,5 @@ pnpm run --filter react-document-picture-in-picture build
 pnpm run --filter examples start
 ```
 
-The examples will be available at `http://localhost:1234/` in your browser.
+The examples will be available at `https://localhost:1234/` in your browser.
 
