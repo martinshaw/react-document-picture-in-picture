@@ -21,9 +21,9 @@ import ReactDocumentPictureInPicture from "react-document-picture-in-picture";
         ({ open, close, toggle, isOpen }) => 
             <div>
                 <b>Is {isOpen ? 'Open' : 'Closed'}</b>
-                <button className="button" onClick={open}>Open</button>
-                <button className="button" onClick={close}>Close</button>
-                <button className="button" onClick={toggle}>Toggle</button>
+                <button onClick={open}>Open</button>
+                <button onClick={close}>Close</button>
+                <button onClick={toggle}>Toggle</button>
             </div>
     }
     onOpen={() => console.log('Opened')}
