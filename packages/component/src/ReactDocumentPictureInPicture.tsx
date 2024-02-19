@@ -24,6 +24,7 @@ export enum FeatureUnavailableReasonEnum {
 export type ReactDocumentPictureInPicturePropsType = {
     width?: string | number;
     height?: string | number;
+    shareStyles?: boolean;
     onOpen?: () => void;
     onClose?: () => void;
     onResize?: (width: number, height: number) => void;
@@ -57,7 +58,7 @@ const ReactDocumentPictureInPicture = forwardRef<
             else if (props.height.endsWith('%')) absoluteHeight = window.innerHeight * (parseInt(props.height) / 100)
         }
 
-        return {width: absoluteWidth, height: absoluteHeight};
+        return { width: absoluteWidth, height: absoluteHeight };
     }, [props.width, props.height]);
 
     const close = useCallback(() => {
@@ -66,7 +67,7 @@ const ReactDocumentPictureInPicture = forwardRef<
         pipWindow.current.close();
 
         setIsOpen(false)
-        
+
         if (props.onClose) props.onClose();
     }, [contentRef, pipWindow, setIsOpen]);
 
@@ -75,11 +76,34 @@ const ReactDocumentPictureInPicture = forwardRef<
 
         const contentElement = contentRef.current;
 
-        pipWindow.current = await window.documentPictureInPicture.requestWindow({...absoluteDimensions});
+        pipWindow.current = await window.documentPictureInPicture.requestWindow({ ...absoluteDimensions });
+
+        if (props.shareStyles === true) {
+            [...document.styleSheets].forEach((styleSheet) => {
+                try {
+                    const cssRules = [...styleSheet.cssRules].map((rule) => rule.cssText).join('');
+                    const style = document.createElement('style');
+
+                    style.textContent = cssRules;
+                    pipWindow.current.document.head.appendChild(style);
+                } catch (e) {
+                    const link = document.createElement('link');
+
+                    link.rel = 'stylesheet';
+                    link.type = styleSheet.type;
+                    if (styleSheet.media.length > 0) {
+                        link.media = styleSheet.media.mediaText;
+                    }
+                    link.href = styleSheet.href;
+                    pipWindow.current.document.head.appendChild(link);
+                }
+            });
+        }
+
         pipWindow.current.document.body.append(contentElement);
 
         pipWindow.current.addEventListener('pagehide', () => close());
-        pipWindow.current.addEventListener('resize', (event) => {            
+        pipWindow.current.addEventListener('resize', (event) => {
             if (props.onResize) props.onResize(
                 (event.target as Window).innerWidth,
                 (event.target as Window).innerHeight
@@ -89,7 +113,7 @@ const ReactDocumentPictureInPicture = forwardRef<
         setIsOpen(true);
 
         if (props.onOpen) props.onOpen();
-    }, [contentRef, pipWindow, setIsOpen, close, absoluteDimensions]);
+    }, [contentRef, pipWindow, setIsOpen, close, absoluteDimensions, props.shareStyles]);
 
     const toggle = useCallback(() => isOpen ? close() : open(), [isOpen]);
 

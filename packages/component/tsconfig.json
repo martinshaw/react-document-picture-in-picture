@@ -8,7 +8,7 @@
     "module": "commonjs",
     "outDir": "./dist",
     "target": "es2016",
-    "lib": ["dom", "es2016"]
+    "lib": ["dom", "dom.iterable", "es2016"]
   },
   "include": ["./src/**/*"],
   "exclude": ["dist", "node_modules", "**/*.spec.ts"]
