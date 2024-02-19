@@ -2,11 +2,13 @@ import { ReactElement, ReactNode, useState } from "react";
 import SizeExampleSection from "./SizeExampleSection";
 import EventsExampleSection from "./EventsExampleSection";
 import UsingRefExampleSection from "./UsingRefExampleSection";
+import UnsupportedExampleSection from "./UnsupportedExampleSection";
 
 const exampleSectionNames = [
     'size',
     'events',
     'using-ref',
+    'unsupported'
 ] as const;
 type ExampleSectionNameType = typeof exampleSectionNames[number];
 
@@ -14,6 +16,7 @@ const exampleSections: Record<ExampleSectionNameType, () => ReactNode> = {
     'size': SizeExampleSection,
     'events': EventsExampleSection,
     'using-ref': UsingRefExampleSection,
+    'unsupported': UnsupportedExampleSection,
 };
 
 const App = () => {
@@ -32,6 +35,7 @@ const App = () => {
                         <li><a className="button" onClick={() => setVisibleSection('size')}>Size</a></li>
                         <li><a className="button" onClick={() => setVisibleSection('events')}>Events</a></li>
                         <li><a className="button" onClick={() => setVisibleSection('using-ref')}>Using Ref</a></li>
+                        <li><a className="button" onClick={() => setVisibleSection('unsupported')}>Unsupported</a></li>
                     </ul>
                 </div>
                 <div>
