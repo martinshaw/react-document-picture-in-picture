@@ -5,7 +5,7 @@
   "description": "Feature-packed and optimised React component for Chrome's new Document Picture-in-Picture API",
   "scripts": {
     "start": "parcel --https src/index.html",
-    "build": "parcel build src/index.html --public-url /packages/examples/dist",
+    "build": "parcel build src/index.html --public-url /react-document-picture-in-picture/packages/examples/dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
