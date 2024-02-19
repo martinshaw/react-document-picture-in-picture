@@ -1,6 +1,6 @@
 {
   "name": "react-document-picture-in-picture",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "private": true,
   "description": "Feature-packed and optimised React component for Chrome's new Document Picture-in-Picture API",
   "main": "index.js",
