@@ -16,12 +16,18 @@ export type ReactDocumentPictureInPictureForwardRefType = {
     close: () => void;
 };
 
+export enum FeatureUnavailableReasonEnum {
+    USING_UNSECURE_PROTOCOL = "USING_UNSECURE_PROTOCOL",
+    API_NOT_SUPPORTED = "API_NOT_SUPPORTED",
+};
+
 export type ReactDocumentPictureInPicturePropsType = {
     width?: string | number;
     height?: string | number;
     onOpen?: () => void;
     onClose?: () => void;
     onResize?: (width: number, height: number) => void;
+    featureUnavailableRenderer?: ReactNode | ((reason: FeatureUnavailableReasonEnum) => ReactNode);
     buttonRenderer?: ReactNode | ((props: { open: () => void, close: () => void, toggle: () => void, isOpen: boolean }) => ReactNode);
     children?: ReactNode | ((props: { close: () => void, isOpen: boolean }) => ReactNode);
 };
@@ -99,6 +105,23 @@ const ReactDocumentPictureInPicture = forwardRef<
 
     const children: ReactNode = typeof props.children === "function" ? props.children({ close, isOpen }) : props.children;
     const buttonRenderer: ReactNode = typeof props.buttonRenderer === "function" ? props.buttonRenderer({ open, close, toggle, isOpen }) : props.buttonRenderer;
+
+    let featureUnavailableReason: FeatureUnavailableReasonEnum | null = (() => {
+        const isUsingSecureProtocol = window.location.protocol === 'https:';
+        if (isUsingSecureProtocol === false) return FeatureUnavailableReasonEnum.USING_UNSECURE_PROTOCOL;
+
+        const featureIsAvailable = 'documentPictureInPicture' in window;
+        if (featureIsAvailable === false) return FeatureUnavailableReasonEnum.API_NOT_SUPPORTED;
+
+        return null;
+    })();
+
+    if (featureUnavailableReason != null && props.featureUnavailableRenderer == null) return;
+
+    if (featureUnavailableReason != null) {
+        const featureUnavailableRenderer: ReactNode = typeof props.featureUnavailableRenderer === "function" ? props.featureUnavailableRenderer(featureUnavailableReason) : props.featureUnavailableRenderer;
+        return featureUnavailableRenderer;
+    }
 
     return (
         <div>

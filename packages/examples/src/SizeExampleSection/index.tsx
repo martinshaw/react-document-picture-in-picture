@@ -44,7 +44,6 @@ import ReactDocumentPictureInPicture from "react-document-picture-in-picture";
                 <i>This text should be displayed in a Document Picture in Picture filling the maximum allow height and 50% of the width of the original window</i>
             </ReactDocumentPictureInPicture>
 
-
         </div>
     );
 }
