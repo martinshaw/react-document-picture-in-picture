@@ -30,7 +30,7 @@ export type ReactDocumentPictureInPicturePropsType = {
     onResize?: (width: number, height: number) => void;
     featureUnavailableRenderer?: ReactNode | ((reason: FeatureUnavailableReasonEnum) => ReactNode);
     buttonRenderer?: ReactNode | ((props: { open: () => void, close: () => void, toggle: () => void, isOpen: boolean }) => ReactNode);
-    children?: ReactNode | ((props: { close: () => void, isOpen: boolean }) => ReactNode);
+    children?: ReactNode;
 };
 
 const ReactDocumentPictureInPicture = forwardRef<
@@ -127,8 +127,6 @@ const ReactDocumentPictureInPicture = forwardRef<
         close,
     ]);
 
-    const children: ReactNode = typeof props.children === "function" ? props.children({ close, isOpen }) : props.children;
-    const buttonRenderer: ReactNode = typeof props.buttonRenderer === "function" ? props.buttonRenderer({ open, close, toggle, isOpen }) : props.buttonRenderer;
 
     let featureUnavailableReason: FeatureUnavailableReasonEnum | null = (() => {
         const isUsingSecureProtocol = window.location.protocol === 'https:';
@@ -147,6 +145,8 @@ const ReactDocumentPictureInPicture = forwardRef<
         return featureUnavailableRenderer;
     }
 
+    const buttonRenderer: ReactNode = typeof props.buttonRenderer === "function" ? props.buttonRenderer({ open, close, toggle, isOpen }) : props.buttonRenderer;
+
     return (
         <div>
             {buttonRenderer}
@@ -155,7 +155,7 @@ const ReactDocumentPictureInPicture = forwardRef<
                 width: '100%',
                 height: '100%',
             }}>
-                {children}
+                {props.children}
             </div>
         </div>
     );
