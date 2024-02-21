@@ -10,6 +10,12 @@ npm install react-document-picture-in-picture
 
 Installs the [`component`](https://github.com/martinshaw/react-document-picture-in-picture/tree/master/packages/component) package from this monorepo project.
 
+## Support 
+
+If you find this package or any of my other open-source packages useful for your projects, please send me a dollar, quid or dinar to help me continue to maintain and develop them. 
+
+[Buy me a coffee](https://www.buymeacoffee.com/lfbehjxudv)
+
 ## Usage
 
 ```tsx
