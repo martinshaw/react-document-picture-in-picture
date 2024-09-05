@@ -131,8 +131,8 @@ const ReactDocumentPictureInPicture = forwardRef<
 
 
     let featureUnavailableReason: FeatureUnavailableReasonEnum | null = (() => {
-        const isUsingSecureProtocol = window.isSecureContext;
-        if (isUsingSecureProtocol === false) return FeatureUnavailableReasonEnum.USING_UNSECURE_PROTOCOL;
+        const isSecureContext = window.isSecureContext;
+        if (isSecureContext === false) return FeatureUnavailableReasonEnum.USING_UNSECURE_PROTOCOL;
 
         const featureIsAvailable = 'documentPictureInPicture' in window;
         if (featureIsAvailable === false) return FeatureUnavailableReasonEnum.API_NOT_SUPPORTED;
