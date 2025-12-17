@@ -1,6 +1,7 @@
 "use client";
 
 import { ReactNode, useRef, useState, useCallback, forwardRef, useEffect, useImperativeHandle, useMemo } from "react";
+import { createPortal } from "react-dom";
 
 /**
  * If you wish, you can interact with the window, its document's DOM, and convenience 
@@ -39,7 +40,6 @@ const ReactDocumentPictureInPicture = forwardRef<
     ReactDocumentPictureInPictureForwardRefType,
     ReactDocumentPictureInPicturePropsType
 >((props, ref) => {
-    const contentRef = useRef<HTMLDivElement>();
     const pipWindow = useRef<Window>();
 
     const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -71,13 +71,9 @@ const ReactDocumentPictureInPicture = forwardRef<
         setIsOpen(false)
 
         if (props.onClose) props.onClose();
-    }, [contentRef, pipWindow, setIsOpen]);
+    }, [pipWindow.current, setIsOpen]);
 
     const open = useCallback(async () => {
-        if (contentRef.current == null) return;
-
-        const contentElement = contentRef.current;
-
         pipWindow.current = await window.documentPictureInPicture.requestWindow({ ...absoluteDimensions });
 
         if (props.shareStyles === true) {
@@ -102,8 +98,6 @@ const ReactDocumentPictureInPicture = forwardRef<
             });
         }
 
-        pipWindow.current.document.body.append(contentElement);
-
         pipWindow.current.addEventListener('pagehide', () => close());
         pipWindow.current.addEventListener('resize', (event) => {
             if (props.onResize) props.onResize(
@@ -115,7 +109,7 @@ const ReactDocumentPictureInPicture = forwardRef<
         setIsOpen(true);
 
         if (props.onOpen) props.onOpen();
-    }, [contentRef, pipWindow, setIsOpen, close, absoluteDimensions, props.shareStyles]);
+    }, [pipWindow, setIsOpen, close, absoluteDimensions, props.shareStyles]);
 
     const toggle = useCallback(() => isOpen ? close() : open(), [isOpen]);
 
@@ -152,13 +146,18 @@ const ReactDocumentPictureInPicture = forwardRef<
     return (
         <div>
             {buttonRenderer}
-            <div ref={contentRef} style={{
-                display: isOpen ? 'block' : 'none',
-                width: '100%',
-                height: '100%',
-            }}>
-                {props.children}
-            </div>
+            {pipWindow.current ?
+                createPortal(
+                    <div style={{
+                        display: isOpen ? 'block' : 'none',
+                        width: '100%',
+                        height: '100%',
+                    }}>
+                        {props.children}
+                    </div>,
+                    pipWindow.current.document.body
+                ) : null
+            }
         </div>
     );
 })
